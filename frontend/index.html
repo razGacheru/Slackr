@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Slackr</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="styles/provided.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+    />
+    <script type="module" src="src/helpers.js"></script>
+  </head>
+
+  <body>
+    <!-- LOGIN PAGE -->
+    <section class="vh-100 hidden" id="login-page">
+      <div class="container py-5 h-100">
+        <div class="row d-flex align-items-center justify-content-center h-100">
+          <div class="col-md-8 col-lg-7 col-xl-6">
+            <img
+              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+              class="img-fluid"
+              alt="Phone image"
+            />
+          </div>
+          <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+            <form id="login-form">
+              <div class="form-outline mb-4">
+                <input
+                  type="text"
+                  id="login-email"
+                  class="form-control form-control-lg"
+                />
+                <label class="form-label" for="login-email"
+                  >Email address</label
+                >
+              </div>
+
+              <div class="form-outline mb-4">
+                <input
+                  type="password"
+                  id="login-password"
+                  class="form-control form-control-lg"
+                />
+                <label class="form-label" for="login-password">Password</label>
+              </div>
+
+              <div
+                class="d-flex justify-content-flex-start align-items-center mb-4"
+              >
+                <a
+                  href="#"
+                  class="redirect-link"
+                  redirect-link="registration-page"
+                  >Not a member? click here to register</a
+                >
+              </div>
+
+              <button
+                type="submit"
+                id="login-button"
+                class="btn btn-primary btn-lg btn-block"
+              >
+                Sign in
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REGISTRATION PAGE -->
+    <section class="vh-100 hidden" id="registration-page">
+      <div class="container py-5 h-100">
+        <div class="row d-flex align-items-center justify-content-center h-100">
+          <div class="col-md-8 col-lg-7 col-xl-6">
+            <img
+              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+              class="img-fluid"
+              alt="Phone image"
+            />
+          </div>
+          <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+            <form id="registration-form">
+              <!-- Email input -->
+              <div class="form-outline mb-4">
+                <input
+                  type="text"
+                  id="registration-name"
+                  class="form-control form-control-lg"
+                />
+                <label class="form-label" for="registration-name">Name</label>
+              </div>
+
+              <div class="form-outline mb-4">
+                <input
+                  type="text"
+                  id="registration-email"
+                  class="form-control form-control-lg"
+                />
+                <label class="form-label" for="registration-email"
+                  >Email address</label
+                >
+              </div>
+
+              <div class="form-outline mb-4">
+                <input
+                  type="password"
+                  id="registration-password"
+                  class="form-control form-control-lg"
+                />
+                <label class="form-label" for="registration-password"
+                  >Password</label
+                >
+              </div>
+
+              <div class="form-outline mb-4">
+                <input
+                  type="password"
+                  id="registration-confirm-password"
+                  class="form-control form-control-lg"
+                />
+                <label class="form-label" for="registration-confirm-password"
+                  >Confirm password</label
+                >
+              </div>
+
+              <div
+                class="d-flex justify-content-flex-start align-items-center mb-4"
+              >
+                <!-- Checkbox -->
+                <a href="#" class="redirect-link" redirect-link="login-page"
+                  >Already a member? click here to login</a
+                >
+              </div>
+              <!-- Submit button -->
+              <button
+                type="submit"
+                id="registration-button"
+                class="btn btn-primary btn-lg btn-block"
+              >
+                Sign in
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ERROR POPUP -->
+    <div id="error-popup">
+      <div
+        id="toggle-error-modal"
+        data-toggle="modal"
+        data-target="#errorModal"
+      ></div>
+
+      <div
+        class="modal fade"
+        id="errorModal"
+        role="dialog"
+        aria-labelledby="addChannelModalerrorModalLabel"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="error-header">s</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" id="error-body"></div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADD CHANNEL MODAL FORM -->
+    <div id="add-new-channel">
+      <div
+        id="toggle-add-channel-modal"
+        data-toggle="modal"
+        data-target="#addChannelModal"
+      ></div>
+
+      <div
+        class="modal fade"
+        id="addChannelModal"
+        role="dialog"
+        aria-labelledby="addChannelModal"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Create new channel</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="create-channel-form">
+                <br /><br />
+                <label for="new-channel-name">Channel name: </label>
+                <input type="text" id="new-channel-name" />
+                <br />
+                <label for="new-channel-description"
+                  >Channel description:
+                </label>
+                <input type="text" id="new-channel-description" />
+                <br />
+                <select id="new-channel-privacy">
+                  <option value="public">Public</option>
+                  <option value="private">Private</option>
+                </select>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-primary"
+                id="new-channel-submit"
+                data-dismiss="modal"
+              >
+                Submit
+              </button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EDIT CHANNEL MODAL FORM -->
+    <div id="edit-channel-details">
+      <div
+        id="update-channel-modal"
+        data-toggle="modal"
+        data-target="#updateChannelModal"
+      ></div>
+
+      <div
+        class="modal fade"
+        id="updateChannelModal"
+        role="dialog"
+        aria-labelledby="updateChannelModal"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Update channel details</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="update-channel-form">
+                <br /><br />
+                <label for="updated-channel-name">New channel name: </label>
+                <input type="text" id="updated-channel-name" />
+                <br />
+                <label for="updated-channel-description"
+                  >New channel description:
+                </label>
+                <input type="text" id="updated-channel-description" />
+                <br />
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-primary"
+                id="update-channel-submit"
+                data-dismiss="modal"
+              >
+                Update
+              </button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="user-dashboard" class="hidden">
+      <header class="banner">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="#">Slackr</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#" id="view-profile-nav"
+                  >View profile</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" id="edit-profile-expand"
+                  >Edit profile</a
+                >
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdownMenuLink"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Credits
+                </a>
+                <div
+                  class="dropdown-menu"
+                  aria-labelledby="navbarDropdownMenuLink"
+                >
+                  <a
+                    class="dropdown-item"
+                    href="https://getbootstrap.com/"
+                    target="_blank"
+                    >Bootstrap</a
+                  >
+                  <a
+                    class="dropdown-item"
+                    href="https://fontawesome.com/"
+                    target="_blank"
+                    >Font-awesome</a
+                  >
+                  <a class="dropdown-item" href="#">Myself</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" id="logout-button">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <br />
+      <!-- User change details form -->
+      <div id="edit-profile-details">
+        <div
+          id="update-profile-modal"
+          data-toggle="modal"
+          data-target="#updateProfileModal"
+        ></div>
+
+        <div
+          class="modal fade"
+          id="updateProfileModal"
+          role="dialog"
+          aria-labelledby="updateProfileModal"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Edit Profile</h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div
+                  class="container bootstrap snippets bootdey"
+                  id="edit-profile-form"
+                >
+                  <h1 class="text-primary">Edit Profile</h1>
+                  <hr />
+                  <div class="row">
+                    <div class="col-md-3">
+                      <div class="text-center">
+                        <img
+                          id="edit-profile-display-photo"
+                          src="https://img.freepik.com/free-vector/illustration-businesswoman_53876-5857.jpg?size=626&ext=jpg&ga=GA1.1.1746201221.1697978271&semt=ais"
+                          class="avatar img-circle img-thumbnail"
+                          alt="avatar"
+                        />
+                        <h6>Upload a different photo...</h6>
+
+                        <input
+                          id="edit-profile-photo"
+                          type="file"
+                          class="form-control"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="col-md-9 personal-info">
+                      <div class="alert alert-info alert-dismissable">
+                        <a class="panel-close close" data-dismiss="alert">x</a>
+                        <i class="fa fa-coffee"></i>
+                        If you don't put a new password, the old password
+                        <strong>will not be changed</strong>.
+                      </div>
+                      <h3>Personal info</h3>
+
+                      <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                          <label class="col-lg-3 control-label">Name:</label>
+                          <div class="col-lg-8">
+                            <input
+                              id="edit-profile-name"
+                              class="form-control"
+                              type="text"
+                            />
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label class="col-lg-3 control-label">Email:</label>
+                          <div class="col-lg-8">
+                            <input
+                              id="edit-profile-email"
+                              class="form-control"
+                              type="text"
+                            />
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label class="col-lg-3 control-label">Bio:</label>
+                          <div class="col-lg-8">
+                            <input
+                              id="edit-profile-bio"
+                              class="form-control"
+                              type="text"
+                            />
+                          </div>
+                        </div>
+
+                        <div class="form-group position-relative">
+                          <label class="col-lg-3 control-label"
+                            >New Password:</label
+                          >
+                          <div class="col-lg-8 password-div">
+                            <input
+                              id="edit-profile-new-password"
+                              class="form-control"
+                              type="password"
+                            />
+                            <i
+                              class="bi bi-eye-slash toggle-password"
+                              data-target="#edit-profile-new-password"
+                            ></i>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  id="edit-profile-cancel"
+                  class="btn btn-danger mr-2"
+                  data-dismiss="modal"
+                >
+                  Cancel
+                </button>
+                <button
+                  data-dismiss="modal"
+                  type="submit"
+                  id="edit-profile-submit"
+                  class="btn btn-primary mr-2"
+                >
+                  Update
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Edit message -->
+      <div id="edit-message">
+        <!-- Button trigger modal -->
+        <div
+          id="edit-message-modal"
+          data-toggle="modal"
+          data-target="#editMessageModal"
+        ></div>
+
+        <div
+          class="modal fade"
+          id="editMessageModal"
+          role="dialog"
+          aria-labelledby="editMessageModal"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Edit Message</h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <label for="edit-message-message">New message: </label>
+                <input type="text" id="edit-message-message" />
+                <br />
+                <label for="edit-message-messageId">Message Id: </label>
+                <input type="text" id="edit-message-messageId" disabled />
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-danger mr-2"
+                  data-dismiss="modal"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary mr-2"
+                  data-dismiss="modal"
+                  id="edit-message-submit-button"
+                >
+                  Update
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Edit message -->
+      <div id="invite-user">
+        <div
+          id="invite-user-modal"
+          data-toggle="modal"
+          data-target="#inviteUserModal"
+        ></div>
+
+        <div
+          class="modal fade"
+          id="inviteUserModal"
+          role="dialog"
+          aria-labelledby="inviteUserModal"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Invite user</h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="modal-content">
+                  <ul id="userList"></ul>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-danger mr-2"
+                  data-dismiss="modal"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary mr-2"
+                  data-dismiss="modal"
+                  id="addUsersBtn"
+                >
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="user-details-container" class="hidden">
+        <img id="other-user-photo" alt="Photo" src="" />
+        <h2 id="other-user-name">Name</h2>
+        <p id="other-user-email">Email</p>
+        <p id="other-user-bio">Bio</p>
+      </div>
+
+      <div class="container">
+        <div class="row clearfix">
+          <div class="col-lg-12">
+            <div class="card chat-app" id="chat-app">
+              <div id="plist" class="people-list">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span
+                      class="input-group-text btn"
+                      id="create-channel-button"
+                      ><i class="fa fa-plus"
+                        >&nbsp;&nbsp;CREATE NEW CHANNEL</i
+                      ></span
+                    >
+                  </div>
+                </div>
+                <ul
+                  class="list-unstyled chat-list mt-2 mb-0"
+                  id="chat-channels-list"
+                ></ul>
+              </div>
+              <div class="chat">
+                <div class="chat-header clearfix" id="chat-header">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <a
+                        href="javascript:void(0);"
+                        data-toggle="modal"
+                        data-target="#view_info"
+                      >
+                        <img
+                          src="https://previews.123rf.com/images/abscent/abscent1709/abscent170900113/86079830-people-avatar-icons-with-dialog-speech-bubbles-male-and-female-faces-avatars-discussion-group-people.jpg"
+                          alt="avatar"
+                        />
+                      </a>
+                    </div>
+                  </div>
+                  <div>
+                    <h6 class="m-b-0" id="channel-name">Welcome to Slackr</h6>
+                    <small class="d-block" id="channel-description"></small>
+                    <small class="d-block" id="channel-creator"></small>
+                    <small class="d-block" id="channel-privacy"></small>
+                    <small class="d-block" id="channel-timestamp"></small>
+                  </div>
+                  <div id="head">
+                    <div id="channel-infos-container">
+                      <br />
+                      <div id="channel-pinned-messages">
+                        <small></small>
+                      </div>
+                      <button type="button" id="edit-channel-button">
+                        <small>Edit channel</small>
+                      </button>
+                      <button type="button" id="leave-channel-button">
+                        <small>Leave channel</small>
+                      </button>
+                      <button id="openModalBtn">
+                        <small>Invite user</small>
+                      </button>
+                      <br /><br />
+                      <form id="edit-channel-form" class="hidden">
+                        <br /><br />
+                        <label for="edit-channel-new-description"
+                          >New name:
+                        </label>
+                        <input
+                          type="text"
+                          id="edit-channel-new-name"
+                          placeholder="New channel name"
+                        /><br />
+                        <label for="edit-channel-new-description"
+                          >New description:
+                        </label>
+                        <input
+                          type="text"
+                          id="edit-channel-new-description"
+                          placeholder="New channel description"
+                        />
+                        <br />
+                        <button type="button" id="edit-channel-cancel-button">
+                          Cancel
+                        </button>
+                        <button type="submit">Save changes</button>
+                        <br /><br />
+                      </form>
+                      <hr />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="chat-history"
+                  style="overflow-y: scroll; height: 400px"
+                  id="chat-history"
+                >
+                  <ul class="m-b-0" id="channel-messages">
+                    <li class="clearfix">
+                      <div class="message-data">
+                        <span class="message-data-time"></span>
+                      </div>
+                      <div class="message my-message"></div>
+                    </li>
+                    <li class="clearfix">
+                      <div class="message-data">
+                        <span class="message-data-time"></span>
+                      </div>
+                      <div class="message other-message float-right"></div>
+                    </li>
+                    <li class="clearfix">
+                      <div class="message-data">
+                        <span class="message-data-time"></span>
+                      </div>
+                      <div class="message my-message"></div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="chat-message clearfix">
+                  <div class="input-group mb-0">
+                    <input
+                      type="text"
+                      id="channel-send-message"
+                      class="form-control"
+                      placeholder="Enter text here..."
+                    />
+                    <div class="input-group-prepend">
+                      <span
+                        id="channel-send-photo-button"
+                        class="input-group-text"
+                        ><i class="fa fa-image"></i
+                      ></span>
+                      <input
+                        type="file"
+                        id="channel-send-photo"
+                        class="hidden"
+                      />
+                    </div>
+                    <div class="input-group-prepend">
+                      <span
+                        id="channel-send-message-button"
+                        class="input-group-text"
+                        ><i class="fa fa-send"></i
+                      ></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Edit message -->
+      <div id="view-image">
+        <div
+          id="view-image-modal"
+          data-toggle="modal"
+          data-target="#viewImageModal"
+        ></div>
+
+        <div
+          class="modal fade"
+          id="viewImageModal"
+          role="dialog"
+          aria-labelledby="viewImageModal"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-body">
+              <div class="modal-content" id="thumbnails-container">
+                <button id="next-image-button" class="thumbnail-button">
+                  NEXT
+                </button>
+                <img id="thumbnail-modal-image" src="" alt="Thumbnail" />
+                <button id="prev-image-button" class="thumbnail-button">
+                  PREV
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      data-toggle="modal"
+      data-target="#viewUserProfileModal"
+      id="view-user-profile-modal"
+    ></div>
+
+    <div
+      class="modal fade right"
+      id="viewUserProfileModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="myModalLabel"
+      aria-hidden="true"
+      data-backdrop="false"
+    >
+      <div
+        class="modal-dialog modal-side modal-bottom-right modal-notify modal-info"
+        role="document"
+      >
+        <div class="modal-content">
+          <div class="modal-header">
+            <small class="heading" id="view-user-profile-email"></small>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true" class="white-text">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-5">
+                <img
+                  src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(55).webp"
+                  class="img-fluid"
+                  alt="user-avatar"
+                  id="view-user-profile-avatar"
+                />
+              </div>
+
+              <div class="col-7">
+                <p>
+                  <strong id="view-user-profile-name"
+                    >My travel to paradise</strong
+                  >
+                </p>
+                <p id="view-user-profile-bio">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit [...]
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-light text-center text-lg-start">
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+        © 2023
+        <a class="text-dark" href="#">Slackr</a>
+      </div>
+    </footer>
+
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>
